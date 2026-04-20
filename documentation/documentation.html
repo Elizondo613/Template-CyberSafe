@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSafe — Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --border: rgba(255,255,255,0.08);
+      --neon: #00ffaa;
+      --neon2: #00cfff;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --white: #f0f6ff;
+      --red: #ff3b5c;
+      --yellow: #f5b800;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      display: flex;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 260px; min-height: 100vh;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      padding: 32px 0;
+      position: fixed; top: 0; left: 0;
+      overflow-y: auto;
+    }
+    .sidebar-logo {
+      padding: 0 24px 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--white); letter-spacing: 1px;
+    }
+    .sidebar-logo span { color: var(--neon); }
+    .sidebar-version {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem; color: var(--text-muted);
+      display: block; margin-top: 4px; font-weight: 400;
+    }
+    .nav-section { padding: 0 24px; margin-bottom: 8px; }
+    .nav-section-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 2px;
+      color: var(--text-muted); text-transform: uppercase;
+      margin-bottom: 8px; margin-top: 20px;
+    }
+    .nav-section a {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 10px; border-radius: 6px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.875rem; transition: all 0.2s;
+    }
+    .nav-section a:hover, .nav-section a.active {
+      background: rgba(0,255,170,0.08);
+      color: var(--neon);
+    }
+    .nav-section a .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; flex-shrink: 0;
+    }
+
+    /* ── Main content ── */
+    .main {
+      margin-left: 260px; flex: 1;
+      padding: 52px 60px 80px;
+      max-width: 900px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px; margin-bottom: 48px;
+    }
+    .page-header .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 1.5px; color: var(--neon);
+      border: 1px solid rgba(0,255,170,0.25);
+      padding: 4px 12px; border-radius: 4px;
+      background: rgba(0,255,170,0.06);
+      margin-bottom: 16px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--neon);
+    }
+    .page-header h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .page-header p { color: var(--text-muted); font-size: 1rem; }
+
+    /* ── Sections ── */
+    .doc-section { margin-bottom: 60px; scroll-margin-top: 32px; }
+    .doc-section h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--white); margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .doc-section h2 .section-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem; color: var(--neon);
+      border: 1px solid rgba(0,255,170,0.25);
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .doc-section h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--white); margin: 24px 0 10px;
+    }
+    .doc-section p { color: var(--text-muted); margin-bottom: 12px; }
+    .doc-section ul, .doc-section ol {
+      padding-left: 20px; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .doc-section li { margin-bottom: 6px; }
+
+    /* ── Code blocks ── */
+    pre {
+      background: #0a0f14;
+      border: 1px solid rgba(0,255,170,0.15);
+      border-radius: 8px; padding: 20px 24px;
+      overflow-x: auto; margin: 16px 0;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.82rem; line-height: 1.8;
+      color: var(--text);
+    }
+    code {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.82rem;
+      background: rgba(0,255,170,0.08);
+      color: var(--neon);
+      padding: 2px 7px; border-radius: 4px;
+    }
+    pre code { background: none; padding: 0; color: var(--text); }
+    .comment { color: #5a7080; }
+    .keyword { color: var(--neon2); }
+    .string { color: var(--neon); }
+    .property { color: #e8b86d; }
+
+    /* ── File tree ── */
+    .file-tree {
+      background: #0a0f14;
+      border: 1px solid rgba(0,255,170,0.15);
+      border-radius: 8px; padding: 20px 24px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.82rem; line-height: 2;
+      margin: 16px 0;
+    }
+    .file-tree .folder { color: var(--neon2); }
+    .file-tree .file { color: var(--text); }
+    .file-tree .desc { color: var(--text-muted); margin-left: 12px; }
+
+    /* ── Variables table ── */
+    table {
+      width: 100%; border-collapse: collapse; margin: 16px 0;
+      font-size: 0.875rem;
+    }
+    th {
+      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-muted); text-align: left;
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    td:first-child { font-family: 'Share Tech Mono', monospace; color: var(--neon); font-size: 0.8rem; }
+    td:nth-child(2) { color: var(--text-muted); font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; }
+    td:nth-child(3) { color: var(--text-muted); }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* ── Info / Warning boxes ── */
+    .callout {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 18px; border-radius: 8px; margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .callout.info { background: rgba(0,207,255,0.07); border: 1px solid rgba(0,207,255,0.2); color: #7dd3fc; }
+    .callout.tip { background: rgba(0,255,170,0.06); border: 1px solid rgba(0,255,170,0.2); color: #6ee7b7; }
+    .callout.warning { background: rgba(245,184,0,0.07); border: 1px solid rgba(245,184,0,0.25); color: #fcd34d; }
+
+    /* ── Credits ── */
+    .credits-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;
+    }
+    .credit-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 20px;
+    }
+    .credit-card strong { display: block; color: var(--white); margin-bottom: 4px; font-size: 0.95rem; }
+    .credit-card span { color: var(--text-muted); font-size: 0.82rem; }
+    .credit-card a { color: var(--neon); text-decoration: none; }
+    .credit-card a:hover { text-decoration: underline; }
+
+    /* ── Support ── */
+    .support-box {
+      background: linear-gradient(135deg, rgba(0,255,170,0.06), rgba(0,207,255,0.04));
+      border: 1px solid rgba(0,255,170,0.2);
+      border-radius: 12px; padding: 32px;
+      text-align: center; margin-top: 16px;
+    }
+    .support-box h3 { color: var(--white); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin-bottom: 10px; }
+    .support-box p { color: var(--text-muted); margin-bottom: 20px; }
+    .support-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--neon), var(--neon2));
+      color: #000; font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      padding: 11px 26px; border-radius: 7px; text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 32px 24px 60px; }
+      .credits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ░░ SIDEBAR ░░ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    CYBER<span>SAFE</span>
+    <span class="sidebar-version">v1.0.0 — Documentation</span>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">Getting Started</div>
+    <a href="#intro" class="active"><span class="dot"></span> Introduction</a>
+    <a href="#requirements"><span class="dot"></span> Requirements</a>
+    <a href="#structure"><span class="dot"></span> File Structure</a>
+    <a href="#quickstart"><span class="dot"></span> Quick Start</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">Customization</div>
+    <a href="#colors"><span class="dot"></span> Colors & Theme</a>
+    <a href="#typography"><span class="dot"></span> Typography</a>
+    <a href="#sections"><span class="dot"></span> Sections Guide</a>
+    <a href="#pricing-toggle"><span class="dot"></span> Pricing Toggle</a>
+    <a href="#animations"><span class="dot"></span> Animations</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">Reference</div>
+    <a href="#credits"><span class="dot"></span> Credits</a>
+    <a href="#changelog"><span class="dot"></span> Changelog</a>
+    <a href="#support"><span class="dot"></span> Support</a>
+  </div>
+</aside>
+
+<!-- ░░ MAIN ░░ -->
+<main class="main">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div class="badge"><span class="badge-dot"></span> HTML TEMPLATE DOCUMENTATION</div>
+    <h1>CyberSafe Documentation</h1>
+    <p>Everything you need to set up, customize, and launch your CyberSafe website. No prior experience required beyond basic HTML editing.</p>
+  </div>
+
+  <!-- 1. Introduction -->
+  <section class="doc-section" id="intro">
+    <h2><span class="section-num">01</span> Introduction</h2>
+    <p>CyberSafe is a premium, fully responsive HTML template designed for cybersecurity companies, VPN services, and IT security startups. It features a modern dark aesthetic with neon accents, smooth animations, and a complete set of sections ready to customize.</p>
+    <h3>What's Included</h3>
+    <ul>
+      <li><strong>index.html</strong> — Main template file, fully structured and commented</li>
+      <li><strong>style.css</strong> — All styles with CSS custom properties for easy theming</li>
+      <li><strong>script.js</strong> — Interactions: navbar scroll, counters, pricing toggle, form handling</li>
+      <li><strong>documentation/</strong> — This file you're reading right now</li>
+    </ul>
+    <h3>Template Sections</h3>
+    <ul>
+      <li>Navigation bar (sticky, responsive, hamburger menu for mobile)</li>
+      <li>Hero section with animated shield and particle grid</li>
+      <li>Trusted brands marquee bar</li>
+      <li>Features grid (6 cards with animated progress bars)</li>
+      <li>How It Works (3 steps + animated terminal)</li>
+      <li>Pricing (3 plans, monthly/annual toggle)</li>
+      <li>Testimonials (3 cards)</li>
+      <li>Contact form (client-side, easily connected to any backend)</li>
+      <li>Footer with links and branding</li>
+    </ul>
+  </section>
+
+  <!-- 2. Requirements -->
+  <section class="doc-section" id="requirements">
+    <h2><span class="section-num">02</span> Requirements</h2>
+    <p>CyberSafe is a pure HTML/CSS/JavaScript template. There is no build process, no Node.js, no npm. All you need is:</p>
+    <ul>
+      <li>A modern web browser (Chrome, Firefox, Safari, Edge)</li>
+      <li>A text editor to customize content (VS Code recommended)</li>
+      <li>A web host or static hosting service to deploy (GitHub Pages, Netlify, Vercel, any shared hosting)</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">✓</span>
+      <span>No frameworks, no dependencies to install. Everything works out of the box by opening <code>index.html</code> in a browser.</span>
+    </div>
+    <h3>External Dependencies (loaded via CDN)</h3>
+    <p>The following libraries are loaded automatically from CDN — no local installation needed:</p>
+    <table>
+      <tr><th>Library</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>AOS</td><td>2.3.1</td><td>Animate on Scroll — fade/slide effects when sections enter the viewport</td></tr>
+      <tr><td>Google Fonts</td><td>—</td><td>Rajdhani (headings), Share Tech Mono (monospace), Inter (body)</td></tr>
+    </table>
+    <div class="callout warning">
+      <span class="callout-icon">⚠</span>
+      <span>The template requires an internet connection to load fonts and AOS from CDN. For fully offline use, download these assets and reference them locally.</span>
+    </div>
+  </section>
+
+  <!-- 3. File Structure -->
+  <section class="doc-section" id="structure">
+    <h2><span class="section-num">03</span> File Structure</h2>
+    <div class="file-tree">
+      <div><span class="folder">CyberSafe-HTML-Template/</span></div>
+      <div>&nbsp;&nbsp;├── <span class="folder">source/</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span class="file">index.html</span> <span class="desc">← Main HTML file</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span class="file">style.css</span> <span class="desc">← All styles + CSS variables</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span class="file">script.js</span> <span class="desc">← JavaScript interactions</span></div>
+      <div>&nbsp;&nbsp;├── <span class="folder">documentation/</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span class="file">documentation.html</span> <span class="desc">← This file</span></div>
+      <div>&nbsp;&nbsp;└── <span class="file">README.txt</span> <span class="desc">← Quick start summary</span></div>
+    </div>
+  </section>
+
+  <!-- 4. Quick Start -->
+  <section class="doc-section" id="quickstart">
+    <h2><span class="section-num">04</span> Quick Start</h2>
+    <h3>1. Open and preview locally</h3>
+    <p>Simply open <code>source/index.html</code> in your browser. The template will work immediately including all animations. All CDN assets load automatically.</p>
+    <h3>2. Edit your content</h3>
+    <p>Open <code>index.html</code> in a text editor and look for the section comments to find what to replace:</p>
+    <pre><span class="comment">&lt;!-- ░░ HERO ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ FEATURES ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ HOW IT WORKS ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ PRICING ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ TESTIMONIALS ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ CONTACT ░░ --&gt;</span>
+<span class="comment">&lt;!-- ░░ FOOTER ░░ --&gt;</span></pre>
+    <h3>3. Deploy</h3>
+    <p>Upload the three files inside <code>source/</code> to any web host. For a free live demo, GitHub Pages works perfectly — just push to a repo and enable Pages in the repository settings.</p>
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <span>Make sure <code>index.html</code>, <code>style.css</code> and <code>script.js</code> are all in the <strong>same folder</strong> when deploying. The HTML references the other files relatively.</span>
+    </div>
+  </section>
+
+  <!-- 5. Colors -->
+  <section class="doc-section" id="colors">
+    <h2><span class="section-num">05</span> Colors & Theme</h2>
+    <p>All colors are defined as CSS custom properties at the top of <code>style.css</code>. Change them once and the entire template updates automatically.</p>
+    <pre><span class="comment">/* style.css — line 1 */</span>
+<span class="keyword">:root</span> {
+  <span class="comment">/* Backgrounds */</span>
+  <span class="property">--bg</span>: <span class="string">#080c10</span>;       <span class="comment">/* Page background */</span>
+  <span class="property">--bg2</span>: <span class="string">#0d1117</span>;      <span class="comment">/* Cards, sections */</span>
+  <span class="property">--bg3</span>: <span class="string">#111820</span>;      <span class="comment">/* Inputs, deep contrast */</span>
+
+  <span class="comment">/* Brand / Accent */</span>
+  <span class="property">--neon</span>: <span class="string">#00ffaa</span>;     <span class="comment">/* Primary accent (green-cyan) */</span>
+  <span class="property">--neon2</span>: <span class="string">#00cfff</span>;    <span class="comment">/* Secondary accent (blue) */</span>
+  <span class="property">--neon-dim</span>: <span class="string">rgba(0,255,170,0.12)</span>;   <span class="comment">/* Tinted backgrounds */</span>
+  <span class="property">--neon-border</span>: <span class="string">rgba(0,255,170,0.25)</span>; <span class="comment">/* Glowing borders */</span>
+
+  <span class="comment">/* Text */</span>
+  <span class="property">--text</span>: <span class="string">#d0dce8</span>;      <span class="comment">/* Body text */</span>
+  <span class="property">--text-muted</span>: <span class="string">#5a7080</span>; <span class="comment">/* Secondary text, labels */</span>
+  <span class="property">--white</span>: <span class="string">#f0f6ff</span>;     <span class="comment">/* Headings, highlights */</span>
+}</pre>
+    <h3>Example: Change to a blue/purple theme</h3>
+    <pre><span class="keyword">:root</span> {
+  <span class="property">--neon</span>: <span class="string">#7c3aed</span>;     <span class="comment">/* Purple */</span>
+  <span class="property">--neon2</span>: <span class="string">#2563eb</span>;    <span class="comment">/* Blue */</span>
+  <span class="property">--neon-dim</span>: <span class="string">rgba(124,58,237,0.12)</span>;
+  <span class="property">--neon-border</span>: <span class="string">rgba(124,58,237,0.25)</span>;
+}</pre>
+    <div class="callout tip">
+      <span class="callout-icon">✓</span>
+      <span>When changing <code>--neon</code>, always update <code>--neon-dim</code> and <code>--neon-border</code> to match using the same RGB values with reduced opacity.</span>
+    </div>
+  </section>
+
+  <!-- 6. Typography -->
+  <section class="doc-section" id="typography">
+    <h2><span class="section-num">06</span> Typography</h2>
+    <p>The template uses three Google Fonts loaded in <code>index.html</code>:</p>
+    <table>
+      <tr><th>Variable</th><th>Font</th><th>Used for</th></tr>
+      <tr><td>--font-display</td><td>Rajdhani</td><td>All headings (h1–h4), buttons, plan names</td></tr>
+      <tr><td>--font-mono</td><td>Share Tech Mono</td><td>Tags, labels, terminal, badge text</td></tr>
+      <tr><td>--font-body</td><td>Inter</td><td>Paragraphs, form inputs, body text</td></tr>
+    </table>
+    <h3>Changing fonts</h3>
+    <p>To change a font, replace the Google Fonts URL in <code>&lt;head&gt;</code> and update the CSS variable:</p>
+    <pre><span class="comment">&lt;!-- In index.html &lt;head&gt; --&gt;</span>
+&lt;<span class="keyword">link</span> href=<span class="string">"https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"</span> rel=<span class="string">"stylesheet"</span>&gt;
+
+<span class="comment">/* In style.css :root */</span>
+<span class="property">--font-display</span>: <span class="string">'Orbitron'</span>, sans-serif;</pre>
+  </section>
+
+  <!-- 7. Sections Guide -->
+  <section class="doc-section" id="sections">
+    <h2><span class="section-num">07</span> Sections Guide</h2>
+
+    <h3>Hero — Stats Counter</h3>
+    <p>The animated counters in the hero are driven by <code>data-count</code> attributes. Change the end values here:</p>
+    <pre>&lt;<span class="keyword">span</span> class=<span class="string">"stat-num"</span> data-count=<span class="string">"99.9"</span>&gt;0&lt;/<span class="keyword">span</span>&gt; <span class="comment">&lt;!-- 99.9% Uptime --&gt;</span>
+&lt;<span class="keyword">span</span> class=<span class="string">"stat-num"</span> data-count=<span class="string">"256"</span>&gt;0&lt;/<span class="keyword">span</span>&gt;  <span class="comment">&lt;!-- 256-bit --&gt;</span>
+&lt;<span class="keyword">span</span> class=<span class="string">"stat-num"</span> data-count=<span class="string">"140"</span>&gt;0&lt;/<span class="keyword">span</span>&gt;  <span class="comment">&lt;!-- 140+ Servers --&gt;</span>
+&lt;<span class="keyword">span</span> class=<span class="string">"stat-num"</span> data-count=<span class="string">"50000"</span>&gt;0&lt;/<span class="keyword">span</span>&gt;</pre>
+    <div class="callout tip">
+      <span class="callout-icon">✓</span>
+      <span>Numbers with a decimal point (like <code>99.9</code>) automatically display with one decimal place. All others display as integers.</span>
+    </div>
+
+    <h3>Features — Progress Bars</h3>
+    <p>Each feature card has a progress bar controlled by inline <code>style="width:XX%"</code>. The JS animates it when the card scrolls into view:</p>
+    <pre>&lt;<span class="keyword">div</span> class=<span class="string">"feat-bar-fill"</span> style=<span class="string">"width:96%"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+&lt;<span class="keyword">span</span> class=<span class="string">"feat-percent"</span>&gt;96% threat coverage&lt;/<span class="keyword">span</span>&gt;</pre>
+
+    <h3>Logos / Trust Bar</h3>
+    <p>The scrolling logos are plain text inside <code>.logos-track</code>. Replace the <code>&lt;span&gt;</code> elements with your client names. The track is duplicated to create a seamless infinite loop — make sure to update <strong>both sets</strong>:</p>
+    <pre>&lt;<span class="keyword">div</span> class=<span class="string">"logos-track"</span>&gt;
+  <span class="comment">&lt;!-- First set --&gt;</span>
+  &lt;<span class="keyword">span</span>&gt;Accenture&lt;/<span class="keyword">span</span>&gt;&lt;<span class="keyword">span</span>&gt;Deloitte&lt;/<span class="keyword">span</span>&gt;...
+  <span class="comment">&lt;!-- Duplicate set (for seamless loop) --&gt;</span>
+  &lt;<span class="keyword">span</span>&gt;Accenture&lt;/<span class="keyword">span</span>&gt;&lt;<span class="keyword">span</span>&gt;Deloitte&lt;/<span class="keyword">span</span>&gt;...
+&lt;/<span class="keyword">div</span>&gt;</pre>
+
+    <h3>Contact Form</h3>
+    <p>The form currently simulates a submission with a 1.2s delay. To connect it to a real backend (e.g. Formspree, EmailJS, or your own API), replace the <code>handleSubmit</code> function in <code>script.js</code>:</p>
+    <pre><span class="comment">// script.js — replace the setTimeout block with a real fetch:</span>
+<span class="keyword">async function</span> handleSubmit(e) {
+  e.preventDefault();
+  <span class="keyword">const</span> data = {
+    name: document.getElementById(<span class="string">'name'</span>).value,
+    email: document.getElementById(<span class="string">'email'</span>).value,
+    message: document.getElementById(<span class="string">'message'</span>).value
+  };
+  <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(<span class="string">'https://formspree.io/f/YOUR_ID'</span>, {
+    method: <span class="string">'POST'</span>,
+    headers: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> },
+    body: JSON.stringify(data)
+  });
+  <span class="keyword">if</span> (res.ok) document.getElementById(<span class="string">'formSuccess'</span>).classList.remove(<span class="string">'hidden'</span>);
+}</pre>
+  </section>
+
+  <!-- 8. Pricing Toggle -->
+  <section class="doc-section" id="pricing-toggle">
+    <h2><span class="section-num">08</span> Pricing Toggle</h2>
+    <p>Each plan card's <code>.amount</code> element holds both price values as data attributes. The JavaScript reads these on toggle:</p>
+    <pre>&lt;<span class="keyword">span</span> class=<span class="string">"amount"</span> data-monthly=<span class="string">"29"</span> data-annual=<span class="string">"20"</span>&gt;29&lt;/<span class="keyword">span</span>&gt;</pre>
+    <p>To update prices, just change <code>data-monthly</code>, <code>data-annual</code>, and the initial text content. No JS changes needed.</p>
+    <table>
+      <tr><th>Plan</th><th>Monthly default</th><th>Annual default</th></tr>
+      <tr><td>--</td><td>data-monthly="9"</td><td>data-annual="6"</td></tr>
+      <tr><td>--</td><td>data-monthly="29"</td><td>data-annual="20"</td></tr>
+      <tr><td>--</td><td>data-monthly="99"</td><td>data-annual="69"</td></tr>
+    </table>
+  </section>
+
+  <!-- 9. Animations -->
+  <section class="doc-section" id="animations">
+    <h2><span class="section-num">09</span> Animations</h2>
+    <p>Scroll animations use <strong>AOS (Animate on Scroll)</strong>. Any element with a <code>data-aos</code> attribute will animate when it enters the viewport.</p>
+    <h3>Available effects</h3>
+    <pre><span class="comment">&lt;!-- Available data-aos values --&gt;</span>
+data-aos=<span class="string">"fade-up"</span>
+data-aos=<span class="string">"fade-down"</span>
+data-aos=<span class="string">"fade-right"</span>
+data-aos=<span class="string">"fade-left"</span>
+data-aos=<span class="string">"zoom-in"</span>
+data-aos=<span class="string">"flip-left"</span>
+
+<span class="comment">&lt;!-- Delay in milliseconds --&gt;</span>
+data-aos-delay=<span class="string">"200"</span>
+
+<span class="comment">&lt;!-- Duration override --&gt;</span>
+data-aos-duration=<span class="string">"1000"</span></pre>
+    <h3>Disable animations</h3>
+    <p>To turn off all scroll animations (e.g. for performance), remove the <code>data-aos</code> attributes or change the AOS init in <code>script.js</code>:</p>
+    <pre>AOS.init({ disable: <span class="keyword">true</span> }); <span class="comment">// disables all AOS</span></pre>
+    <h3>CSS-only animations</h3>
+    <p>The following animations are pure CSS and always run regardless of AOS:</p>
+    <ul>
+      <li><strong>Shield rings</strong> — <code>@keyframes spin-ring</code> in style.css</li>
+      <li><strong>Scan line</strong> — <code>@keyframes scan</code></li>
+      <li><strong>Logo marquee</strong> — <code>@keyframes marquee</code></li>
+      <li><strong>Badge pulse dot</strong> — <code>@keyframes pulse-dot</code></li>
+      <li><strong>Terminal cursor blink</strong> — <code>@keyframes blink</code></li>
+    </ul>
+  </section>
+
+  <!-- 10. Credits -->
+  <section class="doc-section" id="credits">
+    <h2><span class="section-num">10</span> Credits</h2>
+    <p>CyberSafe uses the following free third-party resources. All licenses are compatible with commercial use.</p>
+    <div class="credits-grid">
+      <div class="credit-card">
+        <strong>AOS — Animate on Scroll</strong>
+        <span>License: MIT<br/>
+        <a href="https://michalsnik.github.io/aos/" target="_blank">michalsnik.github.io/aos</a></span>
+      </div>
+      <div class="credit-card">
+        <strong>Rajdhani (Google Fonts)</strong>
+        <span>License: SIL Open Font<br/>
+        <a href="https://fonts.google.com/specimen/Rajdhani" target="_blank">fonts.google.com</a></span>
+      </div>
+      <div class="credit-card">
+        <strong>Share Tech Mono (Google Fonts)</strong>
+        <span>License: SIL Open Font<br/>
+        <a href="https://fonts.google.com/specimen/Share+Tech+Mono" target="_blank">fonts.google.com</a></span>
+      </div>
+      <div class="credit-card">
+        <strong>Inter (Google Fonts)</strong>
+        <span>License: SIL Open Font<br/>
+        <a href="https://fonts.google.com/specimen/Inter" target="_blank">fonts.google.com</a></span>
+      </div>
+    </div>
+    <div class="callout info" style="margin-top:20px">
+      <span class="callout-icon">ℹ</span>
+      <span>Stock images used in the preview screenshots are from <a href="https://unsplash.com" style="color:var(--neon2)">Unsplash</a> and are <strong>not included</strong> in the template files. Replace placeholder content with your own images.</span>
+    </div>
+  </section>
+
+  <!-- 11. Changelog -->
+  <section class="doc-section" id="changelog">
+    <h2><span class="section-num">11</span> Changelog</h2>
+    <h3>v1.0.0 — Initial Release</h3>
+    <ul>
+      <li>Full responsive layout (mobile, tablet, desktop)</li>
+      <li>Dark mode with neon accent system via CSS variables</li>
+      <li>Animated hero with shield, grid, and scan line</li>
+      <li>AOS scroll animations across all sections</li>
+      <li>Animated number counters</li>
+      <li>Monthly/annual pricing toggle with animated price transitions</li>
+      <li>Simulated terminal output in How It Works section</li>
+      <li>Functional contact form (client-side validation)</li>
+      <li>Hamburger navigation for mobile</li>
+    </ul>
+  </section>
+
+  <!-- 12. Support -->
+  <section class="doc-section" id="support">
+    <h2><span class="section-num">12</span> Support</h2>
+    <p>If you have questions about customization, encounter a bug, or need help getting started, use the Codester support channel associated with your purchase.</p>
+    <div class="support-box">
+      <h3>Need help? We've got you.</h3>
+      <p>Submit a support request via your Codester purchase page. We respond within 24–48 hours on business days.</p>
+      <a href="https://www.codester.com" class="support-btn">Open Support Request</a>
+    </div>
+    <div class="callout warning" style="margin-top: 24px;">
+      <span class="callout-icon">⚠</span>
+      <span><strong>Support covers:</strong> template bugs, customization questions, and setup help. It does not include custom development, design changes outside the template scope, or third-party service integrations.</span>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSafe — Enterprise Security & VPN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ░░ SCANLINE OVERLAY ░░ -->
+<div class="scanlines"></div>
+<div class="noise"></div>
+
+<!-- ░░ NAV ░░ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon">⬡</span>
+      <span>CYBER<strong>SAFE</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#pricing" class="btn btn-nav">Get Protected</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="#pricing" class="btn btn-nav">Get Protected</a>
+  </div>
+</nav>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow glow-left"></div>
+  <div class="hero-glow glow-right"></div>
+
+  <div class="container hero-content">
+    <div class="hero-badge" data-aos="fade-down">
+      <span class="badge-dot"></span> SYSTEM ACTIVE — ALL THREATS NEUTRALIZED
+    </div>
+    <h1 data-aos="fade-up" data-aos-delay="100">
+      Military-Grade<br/>
+      <span class="gradient-text">Cyber Protection</span><br/>
+      For Your Business
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">
+      Encrypt every connection. Shield every device. Block every intrusion —
+      before it ever touches your network.
+    </p>
+    <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+      <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+      <a href="#how" class="btn btn-ghost">
+        <span class="play-icon">▶</span> See How It Works
+      </a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+      <div class="stat"><span class="stat-num" data-count="99.9">0</span><span>%</span><p>Uptime SLA</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-count="256">0</span><span>-bit</span><p>AES Encryption</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-count="140">0</span><span>+</span><p>Server Locations</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-count="50000">0</span><span>+</span><p>Protected Clients</p></div>
+    </div>
+  </div>
+
+  <!-- Shield animation -->
+  <div class="shield-wrap" data-aos="zoom-in" data-aos-delay="200">
+    <div class="shield-rings">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+    </div>
+    <div class="shield-core">
+      <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 5L8 18V42C8 60 22 76 40 85C58 76 72 60 72 42V18L40 5Z" stroke="var(--neon)" stroke-width="2" fill="rgba(0,255,170,0.05)"/>
+        <path d="M28 44L36 52L54 34" stroke="var(--neon)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="scan-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ TRUST BAR ░░ -->
+<div class="trust-bar">
+  <div class="container trust-inner">
+    <span class="trust-label">TRUSTED BY</span>
+    <div class="logos-scroll">
+      <div class="logos-track">
+        <span>Accenture</span><span>Deloitte</span><span>Cisco</span>
+        <span>Palo Alto</span><span>CrowdStrike</span><span>Fortinet</span>
+        <span>Accenture</span><span>Deloitte</span><span>Cisco</span>
+        <span>Palo Alto</span><span>CrowdStrike</span><span>Fortinet</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ FEATURES ░░ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">CAPABILITIES</span>
+      <h2>Security That <span class="gradient-text">Never Sleeps</span></h2>
+      <p>End-to-end protection across every layer of your digital infrastructure.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="feat-icon">🛡</div>
+        <h3>Zero-Trust Architecture</h3>
+        <p>Every user, device and connection is verified — regardless of network location. No implicit trust, ever.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:96%"></div></div>
+        <span class="feat-percent">96% threat coverage</span>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="feat-icon">🔐</div>
+        <h3>AES-256 Encryption</h3>
+        <p>Military-grade encryption wraps every packet in transit. Quantum-resistant key exchange by default.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:100%"></div></div>
+        <span class="feat-percent">100% data encrypted</span>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="feat-icon">🌐</div>
+        <h3>Global VPN Network</h3>
+        <p>140+ server locations across 60 countries. Connect from anywhere with sub-20ms latency.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:88%"></div></div>
+        <span class="feat-percent">88% faster than competitors</span>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="feat-icon">⚡</div>
+        <h3>Real-Time Threat Intel</h3>
+        <p>Our AI engine analyzes 3M+ threat signatures per second, blocking attacks before they execute.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:99%"></div></div>
+        <span class="feat-percent">99% detection rate</span>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="feat-icon">🔍</div>
+        <h3>Dark Web Monitoring</h3>
+        <p>Continuous scanning of dark web forums and breach databases for your leaked credentials.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:94%"></div></div>
+        <span class="feat-percent">94% breach detection</span>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="feat-icon">📊</div>
+        <h3>Compliance Dashboard</h3>
+        <p>GDPR, SOC2, HIPAA and ISO 27001 reporting in one unified dashboard. Audit-ready at any time.</p>
+        <div class="feat-bar"><div class="feat-bar-fill" style="width:91%"></div></div>
+        <span class="feat-percent">91% audit pass rate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ HOW IT WORKS ░░ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">PROCESS</span>
+      <h2>Up & Running in <span class="gradient-text">Under 5 Minutes</span></h2>
+      <p>No IT department needed. Zero friction deployment.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-aos="fade-right" data-aos-delay="0">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Deploy the Agent</h3>
+          <p>Install our lightweight agent on any OS — Windows, Mac, Linux, iOS, Android. Single command setup.</p>
+        </div>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="100"></div>
+      <div class="step" data-aos="fade-right" data-aos-delay="150">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Configure Policies</h3>
+          <p>Set access rules, encryption levels and monitoring parameters from the central control plane.</p>
+        </div>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="250"></div>
+      <div class="step" data-aos="fade-right" data-aos-delay="300">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Go Live, Stay Safe</h3>
+          <p>All traffic is encrypted and monitored in real-time. Threats are blocked automatically. You sleep well.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal mock -->
+    <div class="terminal" data-aos="fade-up" data-aos-delay="100">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">cybersafe — agent console</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <p><span class="t-prompt">$</span> cybersafe init --token YOUR_API_TOKEN</p>
+        <p class="t-output">→ Authenticating...</p>
+        <p class="t-output success">✓ Agent registered (ID: cs-4f9a2e)</p>
+        <p class="t-output">→ Fetching security policies...</p>
+        <p class="t-output success">✓ 12 policies applied</p>
+        <p class="t-output">→ Establishing encrypted tunnel...</p>
+        <p class="t-output success">✓ Connected to SFO-01 (18ms)</p>
+        <p class="t-output">→ Starting threat monitor...</p>
+        <p class="t-output success">✓ CyberSafe is ACTIVE. You're protected.</p>
+        <span class="t-cursor">█</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ PRICING ░░ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">PLANS</span>
+      <h2>Simple, <span class="gradient-text">Transparent Pricing</span></h2>
+      <p>No hidden fees. Cancel anytime. All plans include a 14-day free trial.</p>
+    </div>
+
+    <div class="pricing-toggle" data-aos="fade-up" data-aos-delay="50">
+      <span class="toggle-label" id="lblMonthly">Monthly</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="billingToggle">
+        <span class="toggle-thumb"></span>
+      </label>
+      <span class="toggle-label" id="lblAnnual">Annual <em class="save-badge">Save 30%</em></span>
+    </div>
+
+    <div class="plans" data-aos="fade-up" data-aos-delay="100">
+      <!-- Starter -->
+      <div class="plan">
+        <div class="plan-header">
+          <span class="plan-tag">STARTER</span>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="9" data-annual="6">9</span>
+            <span class="period">/mo</span>
+          </div>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> 1 device protected</li>
+          <li><span class="check">✓</span> 50+ VPN locations</li>
+          <li><span class="check">✓</span> AES-256 encryption</li>
+          <li><span class="check">✓</span> Basic threat detection</li>
+          <li><span class="muted">✗</span> Dark web monitoring</li>
+          <li><span class="muted">✗</span> Zero-trust policies</li>
+          <li><span class="muted">✗</span> Compliance reports</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost plan-btn">Get Started</a>
+      </div>
+      <!-- Pro (featured) -->
+      <div class="plan plan-featured">
+        <div class="plan-ribbon">MOST POPULAR</div>
+        <div class="plan-header">
+          <span class="plan-tag">PRO</span>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="29" data-annual="20">29</span>
+            <span class="period">/mo</span>
+          </div>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Up to 10 devices</li>
+          <li><span class="check">✓</span> 140+ VPN locations</li>
+          <li><span class="check">✓</span> AES-256 encryption</li>
+          <li><span class="check">✓</span> AI threat detection</li>
+          <li><span class="check">✓</span> Dark web monitoring</li>
+          <li><span class="check">✓</span> Zero-trust policies</li>
+          <li><span class="muted">✗</span> Compliance reports</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary plan-btn">Get Started</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="plan">
+        <div class="plan-header">
+          <span class="plan-tag">ENTERPRISE</span>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="99" data-annual="69">99</span>
+            <span class="period">/mo</span>
+          </div>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Unlimited devices</li>
+          <li><span class="check">✓</span> 140+ VPN locations</li>
+          <li><span class="check">✓</span> AES-256 encryption</li>
+          <li><span class="check">✓</span> AI threat detection</li>
+          <li><span class="check">✓</span> Dark web monitoring</li>
+          <li><span class="check">✓</span> Zero-trust policies</li>
+          <li><span class="check">✓</span> Compliance reports</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost plan-btn">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ TESTIMONIALS ░░ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">TESTIMONIALS</span>
+      <h2>Security Teams <span class="gradient-text">Love CyberSafe</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Blocked a ransomware attack in under 400ms. Our CISO calls it the best investment of the year."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <strong>Alex Kim</strong>
+            <span>CISO @ FinSecure Inc.</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="testi-stars">★★★★★</div>
+        <p>"We passed our SOC2 audit on the first try. The compliance dashboard made evidence collection trivial."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <strong>Maria Reyes</strong>
+            <span>CTO @ CloudStack</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Rolled out to 800 remote employees in one afternoon. The zero-trust setup took maybe 20 minutes."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DL</div>
+          <div>
+            <strong>David Lee</strong>
+            <span>IT Director @ GlobalOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CONTACT ░░ -->
+<section class="contact" id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-left" data-aos="fade-right">
+      <span class="section-tag">CONTACT</span>
+      <h2>Ready to <span class="gradient-text">Secure Your Stack?</span></h2>
+      <p>Talk to a security engineer today. No sales pitch — just honest advice for your infrastructure.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="c-icon">✉</span>
+          <span>security@cybersafe.io</span>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">📞</span>
+          <span>+1 (800) 123-4567</span>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">🕐</span>
+          <span>24/7 Incident Response</span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" data-aos="fade-left" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Jane Smith" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" placeholder="jane@company.com" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" placeholder="Acme Corp"/>
+      </div>
+      <div class="form-group">
+        <label for="message">How can we help?</label>
+        <textarea id="message" rows="4" placeholder="Describe your security needs..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary full-btn">
+        <span id="submitText">Send Message</span>
+      </button>
+      <div id="formSuccess" class="form-success hidden">
+        ✓ Message received — we'll reach out within 2 hours.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-icon">⬡</span>
+        <span>CYBER<strong>SAFE</strong></span>
+      </a>
+      <p>Enterprise security infrastructure for the modern threat landscape.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Changelog</a>
+        <a href="#">Roadmap</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+        <a href="#">GDPR</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 CyberSafe Inc. All rights reserved.</span>
+    <span>Encrypted with ❤ everywhere</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
