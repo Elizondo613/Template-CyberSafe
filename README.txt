@@ -8,20 +8,20 @@ Thank you for purchasing CyberSafe!
 ------------------------------------------------------
 QUICK START
 ------------------------------------------------------
-1. Open source/index.html in your browser — done!
+1. Open docs/index.html in your browser — done!
    No build tools or npm required.
 
-2. Edit text and content directly in source/index.html
+2. Edit text and content directly in docs/index.html
 
-3. Customize colors in source/style.css under :root {}
+3. Customize colors in docs/style.css under :root {}
 
-4. Deploy by uploading the 3 files in source/ to any
+4. Deploy by uploading the 3 files in docs/ to any
    web host (GitHub Pages, Netlify, Vercel, shared hosting)
 
 ------------------------------------------------------
 FILES INCLUDED
 ------------------------------------------------------
-source/
+docs/
   index.html      — Main template file
   style.css       — All styles + CSS custom properties
   script.js       — Animations, counters, pricing toggle
